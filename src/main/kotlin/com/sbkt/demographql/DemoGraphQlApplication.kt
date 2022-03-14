@@ -16,13 +16,14 @@ class DemoGraphQlApplication {
 
     @Bean
     fun query(repository: AuthorRepository): Query {
+        log.info("Record count - ${repository.count()}")
         return Query(repository)
     }
-//
-//    @Bean
-//    fun mutation(repository: AuthorRepository): Mutation {
-//        return Mutation(repository)
-//    }
+
+    @Bean
+    fun mutation(repository: AuthorRepository): Mutation {
+        return Mutation(repository)
+    }
 
     @Bean
     fun init(repository: AuthorRepository) = CommandLineRunner {

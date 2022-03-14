@@ -1,5 +1,5 @@
 type Author {
-    id: ID!
+    authorId: ID!
     firstName: String!
     lastName: String!
     email: String!
@@ -7,9 +7,9 @@ type Author {
 
 type Query {
     findAllAuthors: [Author]!
-    countAuthors: Long!
+    countAuthors: Int!
 }
 
 type Mutation {
-    newAuthor(firstName: String!, lastName: String!) : Author!
+    newAuthor(firstName: String!, lastName: String!, email: String!) : Author!
 }
